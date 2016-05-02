@@ -8,56 +8,49 @@ import java.util.List;
  */
 public class Moves {
 
-    public static List<Offset> diagonals(int boardSize)
+    public static List<Direction> diagonals()
     {
-        List<Offset> diags = new ArrayList<Offset>();
-        for(int i = 0; i < boardSize; i++)
-        {
-            diags.add(new Offset(i, i));
-            diags.add(new Offset(i, -i));
-            diags.add(new Offset(-i, i));
-            diags.add(new Offset(-i, -i));
-        }
+        List<Direction> diags = new ArrayList<Direction>();
+        diags.add(new Direction(-1, -1));
+        diags.add(new Direction(-1, 1));
+        diags.add(new Direction(1, -1));
+        diags.add(new Direction(1, 1));
         return diags;
     }
-
-    public static List<Offset> cardinals(int boardSize)
+    public static List<Direction> cardinals()
     {
-        List<Offset> moves = new ArrayList<Offset>();
-        for(int i = 0; i < boardSize; i++)
-        {
-            moves.add(new Offset(0, i));
-            moves.add(new Offset(0, -i));
-            moves.add(new Offset(i, 0));
-            moves.add(new Offset(-i, 0));
-        }
-        return moves;
+        List<Direction> cardinals = new ArrayList<Direction>();
+        cardinals.add(new Direction(-1, 0));
+        cardinals.add(new Direction(1, 0));
+        cardinals.add(new Direction(0, -1));
+        cardinals.add(new Direction(0, 1));
+        return cardinals;
     }
 
-    public static List<Offset> around()
+    public static List<Direction> around()
     {
-        List<Offset> moves = new ArrayList<Offset>();
+        List<Direction> moves = new ArrayList<Direction>();
         for(int x = -1; x <= 1; x++)
         {
             for(int y = -1; y <= 1; y++)
             {
                 if(x == 0 && y == 0) continue;
-                moves.add(new Offset(x, y));
+                moves.add(new Direction(x, y, 1));
 
             }
         }
         return moves;
     }
 
-    public static List<Offset> knight(int radius)
+    public static List<Direction> knight(int radius)
     {
-        List<Offset> moves = new ArrayList<Offset>();
+        List<Direction> moves = new ArrayList<Direction>();
         for(int i = 1; i < radius; i++)
         {
-            moves.add(new Offset(radius - i, i));
-            moves.add(new Offset(radius - i, -i));
-            moves.add(new Offset(-(radius - i), i));
-            moves.add(new Offset(-(radius - i), -i));
+            moves.add(new Direction(radius - i, i, 1));
+            moves.add(new Direction(radius - i, -i, 1));
+            moves.add(new Direction(-(radius - i), i, 1));
+            moves.add(new Direction(-(radius - i), -i, 1));
         }
         return moves;
     }

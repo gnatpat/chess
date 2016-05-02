@@ -40,9 +40,4 @@ public class Position {
         return start + offset;
     }
 
-    public Position add(Offset offset)
-    {
-        return new Position(x + offset.getX(), y + offset.getY());
-    }
-
 }

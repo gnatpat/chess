@@ -5,5 +5,11 @@ package net.natpat;
  */
 public class Board {
 
+    private final int boardSize;
+
+    public Board(int boardSize)
+    {
+        this.boardSize = boardSize;
+    }
 
 }

@@ -13,19 +13,19 @@ public class Pieces {
     {
         return new Piece(Moves.around());
     }
-    public static Piece queen(int boardSize)
+    public static Piece queen()
     {
-        List<Offset> moves = Moves.diagonals(boardSize);
-        moves.addAll(Moves.cardinals(boardSize));
+        List<Direction> moves = Moves.diagonals();
+        moves.addAll(Moves.cardinals());
         return new Piece(moves);
     }
-    public static Piece rook(int boardSize)
+    public static Piece rook()
     {
-        return new Piece(Moves.cardinals(boardSize));
+        return new Piece(Moves.cardinals());
     }
-    public static Piece bishop(int boardSize)
+    public static Piece bishop()
     {
-        return new Piece(Moves.diagonals(boardSize));
+        return new Piece(Moves.diagonals());
     }
     public static Piece knight()
     {
@@ -33,11 +33,11 @@ public class Pieces {
     }
     public static Piece pawn(int boardSize)
     {
-        List<Offset> moves = new ArrayList<Offset>();
-        moves.add(new Offset(0, 1));
-        List<Offset> captures = new ArrayList<Offset>();
-        captures.add(new Offset(1, 1));
-        captures.add(new Offset(1, -1));
+        List<Direction> moves = new ArrayList<Direction>();
+        moves.add(new Direction(0, 1));
+        List<Direction> captures = new ArrayList<Direction>();
+        captures.add(new Direction(1, 1));
+        captures.add(new Direction(1, -1));
         return new Piece(moves, captures);
     }
 
